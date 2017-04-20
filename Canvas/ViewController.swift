@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        trayCenterWhenOpen = CGPoint(x: trayView.center.x, y: view.frame.height - trayView.frame.height + 110)
+        trayCenterWhenOpen = CGPoint(x: trayView.center.x, y: view.frame.height - trayView.frame.height / 2)
         trayCenterWhenClosed = trayView.center
     }
 
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func smileyPanGesture(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: view)
+        let translation = sender.translation(in: trayView)
 
         if sender.state == .began {
             let imageView = sender.view as! UIImageView
